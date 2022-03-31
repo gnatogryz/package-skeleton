@@ -40,3 +40,13 @@ and the `package.json` gets stripped down to:
 	}
 }
 ```
+
+## Scripts
+
+```bash
+build      # build to ./dist
+clean      # remove ./dist
+copy       # do the "flat package magic" - prepare dist for publishing
+dist       # build and publish ./dist (remember to bump first)
+dist:pack  # build and pack to ./dist
+```

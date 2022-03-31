@@ -1,0 +1,37 @@
+{
+	"name": "package-skeleton",
+	"version": "0.0.1",
+	"description": "A package scaffold",
+	"main": "index.js",
+	"author": "Michał Dobrzański <plague@go2.pl>",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/fs-extra": "^9.0.13",
+		"@types/node": "^16.11.1",
+		"@types/node-fetch": "^2.6.1",
+		"husky": "^7.0.2",
+		"json": "^11.0.0",
+		"lint-staged": "^11.2.3",
+		"prettier": "2.4.1",
+		"rimraf": "^3.0.2",
+		"shx": "^0.3.4",
+		"ts-node": "^10.3.0",
+		"typescript": "^4.4.4"
+	},
+	"scripts": {
+		"prepare": "husky install",
+		"build": "npm run clean && tsc",
+		"clean": "npx rimraf ./dist",
+		"test": "echo ok",
+		"copy": "shx cp package.json README.md dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+		"dist": "npm run build && npm run copy && npm publish ./dist",
+		"dist:pack": "npm run build && npm run copy && cd dist && npm pack"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	},
+	"dependencies": {
+		"fs-extra": "^10.0.0",
+		"node-fetch": "^2.6.2"
+	}
+}

@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"author": "Michał Dobrzański <plague@go2.pl>",
 	"license": "MIT",
+	"private": true,
 	"devDependencies": {
 		"@types/fs-extra": "^9.0.13",
 		"@types/node": "^16.11.1",
